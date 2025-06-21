@@ -1,6 +1,6 @@
 # 🛒 UAS CSP - Dashboard Produk (Next.js + Supabase)
 
-Aplikasi web dashboard manajemen produk berbasis **role** (`admin` dan `user`) dengan **CRUD produk** untuk admin dan tampilan read-only untuk user biasa. Dibuat menggunakan **Next.js 15 (App Router)** dan **Supabase**, untuk memenuhi Tugas Akhir mata kuliah *Cloud Service Programming (CSP)*.
+Aplikasi web dashboard manajemen produk berbasis **role** (`admin` dan `user`) dengan **CRUD produk** untuk admin dan tampilan read-only untuk user biasa. Dibuat menggunakan **Next.js 15 (App Router)** dan **Supabase**, untuk memenuhi Tugas Akhir mata kuliah.
 
 ---
 
@@ -48,8 +48,10 @@ Berikut adalah screenshot halaman utama aplikasi ada di repo folder screenshot
 
 
 2. Instalasi:
+    ```bash
     npm install
 
 3. buat .env.local jika belum ada:
+    ```bash
     NEXT_PUBLIC_SUPABASE_URL=https://ccsfciemdgquwyzsltyr.supabase.co
     NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjc2ZjaWVtZGdxdXd5enNsdHlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1MTAzODEsImV4cCI6MjA2NjA4NjM4MX0.MaN131firERcxBhzm-JajPDufsTriN8DrK8asJuQIsw
