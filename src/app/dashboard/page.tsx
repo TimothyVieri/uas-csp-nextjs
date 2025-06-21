@@ -26,7 +26,7 @@ export default function Dashboard() {
         const parsed: UserData = JSON.parse(data)
         setUser(parsed)
         fetchProducts()
-    }, [router]) // <-- Tambahkan router ke dependency array
+    }, [router]) // <-- Perbaikan untuk dependency warning (sudah benar)
 
     const fetchProducts = async () => {
         const { data } = await supabase.from('products').select('*')
@@ -50,14 +50,16 @@ export default function Dashboard() {
 
     const handleEdit = (p: Product) => {
         setForm({ ...p })
-        window.scrollTo({ top: 0, behavior: 'smooth' }) // optional scroll ke atas
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
+    // GANTI SELURUH FUNGSI INI DENGAN VERSI YANG SUDAH DIPERBAIKI
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
         try {
             if (form.id) {
+                // Bagian untuk UPDATE produk
                 const confirm = await Swal.fire({
                     title: 'Simpan perubahan?',
                     icon: 'question',
@@ -80,6 +82,7 @@ export default function Dashboard() {
                 if (error) throw new Error('Gagal update produk.')
                 Swal.fire('Berhasil', 'Produk berhasil diupdate.', 'success')
             } else {
+                // Bagian untuk INSERT produk
                 const { error } = await supabase.from('products').insert({
                     nama_produk: form.nama_produk,
                     harga_satuan: form.harga_satuan,
@@ -92,15 +95,18 @@ export default function Dashboard() {
 
             await fetchProducts()
             setForm({ nama_produk: '', harga_satuan: 0, quantity: 0 })
-        } catch (err) {
-            const message = err instanceof Error ? err.message : 'Terjadi error saat menyimpan data.'
+        } catch (err: unknown) { // <-- PERBAIKAN UTAMA: Mengatasi error 'any'
+            // Logika penanganan error yang lebih aman
+            let message = 'Terjadi error tidak dikenal saat menyimpan data.'
+            if (err instanceof Error) {
+                message = err.message
+            }
             Swal.fire({
                 title: 'Terjadi kesalahan!',
                 text: message,
                 icon: 'error',
             })
         }
-
     }
 
     if (!user) return null
