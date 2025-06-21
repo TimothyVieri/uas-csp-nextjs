@@ -26,7 +26,7 @@ export default function Dashboard() {
         const parsed: UserData = JSON.parse(data)
         setUser(parsed)
         fetchProducts()
-    }, [router])
+    }, [router]) // <-- Tambahkan router ke dependency array
 
     const fetchProducts = async () => {
         const { data } = await supabase.from('products').select('*')
@@ -92,13 +92,15 @@ export default function Dashboard() {
 
             await fetchProducts()
             setForm({ nama_produk: '', harga_satuan: 0, quantity: 0 })
-        } catch (err: any) {
+        } catch (err) {
+            const message = err instanceof Error ? err.message : 'Terjadi error saat menyimpan data.'
             Swal.fire({
                 title: 'Terjadi kesalahan!',
-                text: err.message || 'Terjadi error saat menyimpan data.',
+                text: message,
                 icon: 'error',
             })
         }
+
     }
 
     if (!user) return null
