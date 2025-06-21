@@ -21,7 +21,7 @@ Aplikasi web dashboard manajemen produk berbasis **role** (`admin` dan `user`) d
 | Keterangan              | URL                                                                 |
 |-------------------------|----------------------------------------------------------------------|
 | 🔗 GitHub Repo          | [https://github.com/TimothyVieri/uas-csp-nextjs](https://github.com/TimothyVieri/uas-csp-nextjs) |
-| 🔗 Vercel Live Preview  | [https://uas-csp-nextjs.vercel.app](https://uas-csp-nextjs.vercel.app) |
+| 🔗 Vercel Live Preview  | [https://uas-csp-weld.vercel.app/signin](https://uas-csp-weld.vercel.app/signin) |
 
 ---
 
@@ -36,34 +36,8 @@ Aplikasi web dashboard manajemen produk berbasis **role** (`admin` dan `user`) d
 
 ## 🧪 Bukti Program Berjalan
 
-Berikut adalah screenshot halaman utama aplikasi:
-
-### 📷 1. Halaman Sign-In
-![Sign-in](screenshots/signin.png)
-
-### 📷 2. Dashboard Admin
-![Dashboard Admin](screenshots/admin-dashboard.png)
-
-### 📷 3. Form Edit Produk
-![Edit Produk](screenshots/edit-form.png)
-
-### 📷 4. Dashboard User Biasa
-![Dashboard User](screenshots/user-dashboard.png)
-
+Berikut adalah screenshot halaman utama aplikasi ada di repo folder screenshot
 > Screenshot disimpan dalam folder `screenshots/` di repo.
-
----
-
-## ⚙️ Teknologi yang Digunakan
-
-- [x] Next.js 15 (App Router)
-- [x] TypeScript
-- [x] Supabase (DB + Auth)
-- [x] Tailwind CSS
-- [x] SweetAlert2
-- [x] Vercel (deployment)
-
----
 
 ## 🛠️ Cara Menjalankan di Lokal
 
