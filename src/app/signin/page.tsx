@@ -45,9 +45,10 @@ export default function SignInPage() {
             localStorage.setItem('user', JSON.stringify(data))
             router.push('/dashboard')
 
-        } catch (err) {
+        } catch (_err) { // Tambahkan underscore di sini
             setError('Terjadi kesalahan tak terduga.')
         } finally {
+            
             setIsLoading(false) // Selalu matikan loading state di akhir
         }
     }

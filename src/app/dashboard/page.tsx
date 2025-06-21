@@ -7,7 +7,7 @@ import { supabase } from '@/lib/supabaseClient'
 import Navbar from '@/components/Navbar'
 import Swal from 'sweetalert2'
 // Impor ikon-ikon yang akan kita gunakan
-import { PlusCircle, MoreHorizontal, Edit, Trash2, X, LoaderCircle } from 'lucide-react'
+import { PlusCircle, Edit, Trash2, X, LoaderCircle } from 'lucide-react'
 
 // Komponen untuk tampilan loading (Skeleton)
 const ProductListSkeleton = () => (
@@ -37,16 +37,15 @@ export default function Dashboard() {
     })
     const router = useRouter()
 
-    // Fungsi untuk mengambil data produk
     const fetchProducts = async () => {
         setIsLoading(true);
-        const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+        // Cukup ambil 'data' saja
+        const { data } = await supabase.from('products').select('*').order('created_at', { ascending: false });
         if (data) {
             setProducts(data);
         }
         setIsLoading(false);
     }
-
     useEffect(() => {
         const data = localStorage.getItem('user')
         if (!data) {
